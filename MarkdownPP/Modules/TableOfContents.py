@@ -147,8 +147,11 @@ class TableOfContents(Module):
                 section = (".".join([str(x) for x in stack]) +
                            ".%d\\. " % headernum)
 
-            tocdata += ("%s [%s](#%s)  \n" %
-                        (section, TableOfContents.clean_title(title), short))
+            # prefix toc lines with - and indent spaces to produce a list
+            toc_prefix = ("".join([' ' for x in stack]) + "- ")
+
+            tocdata += ("%s%s [%s](#%s)  \n" %
+                        (toc_prefix, section, TableOfContents.clean_title(title), short))
 
             transforms.append(Transform(linenum, "swap",
                               data[linenum].replace(title, section + title)))
