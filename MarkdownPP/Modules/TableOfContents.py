@@ -148,7 +148,7 @@ class TableOfContents(Module):
                            ".%d\\. " % headernum)
 
             # prefix toc lines with - and indent spaces to produce a list
-            toc_prefix = ("".join([' ' for x in stack]) + "- ")
+            toc_prefix = ("".join(['  ' for x in stack]) + "- ")
 
             tocdata += ("%s%s [%s](#%s)  \n" %
                         (toc_prefix, section, TableOfContents.clean_title(title), short))
